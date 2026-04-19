@@ -1,0 +1,195 @@
+Act as an expert travel planner specializing in Japan travel for Indian tourists, with deep experience in designing low-crowd, culture-rich, and nature-focused itineraries.
+
+Your task is to generate a COMPLETE, highly detailed, and practical Japan travel plan along with an interactive HTML web app for viewing the itinerary.
+
+--------------------------------------
+🎯 TRAVEL CONTEXT
+--------------------------------------
+- Trip Start Date: 20th May
+- Duration: 10–14 days
+- Arrival & Departure: Tokyo (round trip)
+- Traveler Preference:
+  - Avoid crowded tourist spots where possible
+  - Focus on culture, nature, and immersive experiences
+  - Include balanced and popular alternatives as options
+  - Minimize travel fatigue
+  - First-time traveler from India
+
+--------------------------------------
+📦 OUTPUT REQUIREMENTS
+--------------------------------------
+
+You must generate:
+
+1. 🌐 A COMPLETE HTML WEB APP (single file)
+2. 📚 Rich, detailed content inside the app
+3. 🎯 Practical, real-world usable itinerary (not generic)
+
+--------------------------------------
+🧩 WEB APP STRUCTURE (MANDATORY)
+--------------------------------------
+
+The HTML app must contain:
+
+1. Home Section
+2. Itinerary Section (MOST IMPORTANT)
+3. Stay Section
+4. Food Section
+5. Budget Section
+6. Visa Section
+7. Tips Section
+
+UI Requirements:
+- Light theme (clean, modern, soft colors)
+- Expand/collapse day-wise itinerary
+- Navigation tabs
+- Responsive layout
+- Visually appealing cards
+- NO external dependencies
+
+--------------------------------------
+📅 ITINERARY DESIGN (CRITICAL)
+--------------------------------------
+
+For EACH DAY:
+
+Provide 3 parallel options:
+
+1. 🟢 Low Crowd (Primary recommendation)
+2. 🟡 Balanced
+3. 🔴 Popular / Tourist-heavy
+
+Each option MUST include:
+
+- Detailed step-by-step flow (morning → afternoon → evening)
+- Specific places/experiences
+- Why this option is good
+- Travel time between locations
+- Transport method (metro, JR, walking, bus)
+- Food suggestions for that day
+- Approximate daily cost (INR or JPY)
+- Practical tips (timing, crowd avoidance, hacks)
+
+DO NOT write short bullet points like:
+❌ “Visit temple”
+✔ Instead write:
+- “Start early (6 AM) at Fushimi Inari to avoid crowds and experience empty torii gates”
+
+--------------------------------------
+🏙️ CITIES TO COVER
+--------------------------------------
+
+Must include:
+- Tokyo
+- Kyoto
+- Osaka
+
+Must include at least one:
+- Kamakura (day trip)
+
+
+Optional:
+- Nara / Takayama / Kanazawa
+- Kawaguchiko (Mt Fuji stay) Based on your analysis on trip duration. Primary concern visibility
+
+--------------------------------------
+🏨 STAY SECTION
+--------------------------------------
+
+For each city:
+- Best areas to stay (with reasoning)
+- Budget, mid-range, premium options
+- Airbnb suggestions
+- Price range in INR
+- Tips (proximity to stations, connectivity)
+
+--------------------------------------
+🍜 FOOD SECTION
+--------------------------------------
+
+Include:
+- Must-try Japanese dishes
+- Street food areas
+- local dishes
+- daily meals
+
+--------------------------------------
+SHOPPING SECTION
+--------------------------------------
+
+Include:
+- local shops
+- electronics shops
+- gift shops
+
+
+--------------------------------------
+💰 BUDGET SECTION
+--------------------------------------
+
+Breakdown in INR:
+- Flights
+- Stay
+- Food
+- Local transport (JR Pass, metro)
+- Attractions
+- Total estimate
+
+--------------------------------------
+🛂 VISA SECTION (INDIANS)
+--------------------------------------
+
+Include:
+- Step-by-step process
+- Required documents
+- Fees
+- Processing time
+- Rejection avoidance tips
+
+--------------------------------------
+💡 TIPS SECTION
+--------------------------------------
+
+Include:
+- SIM / Pocket WiFi
+- Currency & payments (cash vs card)
+- Cultural etiquette
+- Packing list (May weather)
+- Things to avoid
+- Travel hacks
+
+--------------------------------------
+✨ EXPERIENCE QUALITY REQUIREMENTS
+--------------------------------------
+
+- Prioritize low-crowd and hidden gems
+- Replace overly touristy spots where possible
+- Include early morning strategies
+- Include local neighborhoods
+- Add nature + cultural balance
+- Avoid overpacking itinerary
+
+--------------------------------------
+🚫 WHAT TO AVOID
+--------------------------------------
+
+- Generic one-line descriptions
+- Overcrowded-only itineraries
+- Missing transport/logistics
+- Lack of practical detail
+- Repetitive content
+
+--------------------------------------
+🎯 FINAL OUTPUT
+--------------------------------------
+
+Return:
+1. A COMPLETE HTML FILE (ready to save and open in browser)
+2. With all sections filled
+3. With detailed, rich itinerary content
+4. With 3-option daily structure
+5. With a clean, modern UI
+
+The result should feel like:
+“A real, premium travel planning product”
+—not just a basic itinerary.

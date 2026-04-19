@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Japan Travel Planner</title>
+
+<style>
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    background: #f4f6f9;
+}
+
+header {
+    background: linear-gradient(135deg, #ff5f6d, #ffc371);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+nav button {
+    padding: 15px 20px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+nav button:hover {
+    color: #ff5f6d;
+}
+
+.section {
+    display: none;
+    padding: 20px;
+    max-width: 900px;
+    margin: auto;
+}
+
+.active {
+    display: block;
+}
+
+.card {
+    background: white;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.day-header {
+    padding: 15px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+}
+
+.day-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.4s;
+    padding: 0 15px;
+}
+
+.card.active .day-content {
+    max-height: 300px;
+    padding: 15px;
+}
+
+.hero {
+    text-align: center;
+    padding: 40px;
+}
+
+.tag {
+    background: #ffe0e6;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🇯🇵 Japan Travel Planner</h1>
+    <p>Round Trip: Tokyo | Starting 20 May</p>
+</header>
+
+<nav>
+    <button onclick="showSection('home')">Home</button>
+    <button onclick="showSection('itinerary')">Itinerary</button>
+    <button onclick="showSection('visa')">Visa</button>
+</nav>
+
+<!-- HOME -->
+<div id="home" class="section active">
+    <div class="hero">
+        <h2>Welcome to Your Japan Trip ✈️</h2>
+        <p>Tokyo → Hakone → Kyoto → Osaka → Tokyo</p>
+        <p>Includes temples, food, shopping & theme parks 🎢</p>
+    </div>
+
+    <div class="card">
+        <div style="padding:20px;">
+            <h3>🎢 Theme Parks Included</h3>
+            <ul>
+                <li>🎡 :contentReference[oaicite:1]{index=1}</li>
+                <li>🎢 :contentReference[oaicite:2]{index=2} (Harry Potter World)</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- ITINERARY -->
+<div id="itinerary" class="section">
+
+<div class="card">
+<div class="day-header" onclick="toggle(this)">Day 1 – Tokyo Arrival</div>
+<div class="day-content">
+<p>Arrival, check-in, explore Shibuya Crossing.</p>
+<span class="tag">Light Day</span>
+</div>
+</div>
+
+<div class="card">
+<div class="day-header" onclick="toggle(this)">Day 2 – Tokyo + Disney</div>
+<div class="day-content">
+<p>Full day at Tokyo Disneyland 🎡</p>
+</div>
+</div>
+
+<div class="card">
+<div class="day-header" onclick="toggle(this)">Day 3 – Tokyo City</div>
+<div class="day-content">
+<p>Senso-ji, Skytree, Akihabara.</p>
+</div>
+</div>
+
+<div class="card">
+<div class="day-header" onclick="toggle(this)">Day 4 – Hakone</div>
+<div class="day-content">
+<p>Mt Fuji views, Lake Ashi, onsen stay.</p>
+</div>
+</div>
+
+<div class="card">
+<div class="day-header" onclick="toggle(this)">Day 5 – Kyoto</div>
+<div class="day-content">
+<p>Bullet train, Gion district.</p>
+</div>
+</div>
+
+<div class="card">
+<div class="day-header" onclick="toggle(this)">Day 6 – Kyoto Temples</div>
+<div class="day-content">
+<p>Fushimi Inari, Kinkaku-ji.</p>
+</div>
+</div>
+
+<div class="card">
+<div class="day-header" onclick="toggle(this)">Day 7 – Arashiyama</div>
+<div class="day-content">
+<p>Bamboo Grove, Monkey Park.</p>
+</div>
+</div>
+
+<div class="card">
+<div class="day-header" onclick="toggle(this)">Day 8 – Nara</div>
+<div class="day-content">
+<p>Deer park, Todai-ji.</p>
+</div>
+</div>
+
+<div class="card">
+<div class="day-header" onclick="toggle(this)">Day 9 – Osaka</div>
+<div class="day-content">
+<p>Dotonbori street food.</p>
+</div>
+</div>
+
+<div class="card">
+<div class="day-header" onclick="toggle(this)">Day 10 – Universal Studios</div>
+<div class="day-content">
+<p>Harry Potter World 🎢</p>
+</div>
+</div>
+
+<div class="card">
+<div class="day-header" onclick="toggle(this)">Day 11 – Return to Tokyo</div>
+<div class="day-content">
+<p>Shopping & relax.</p>
+</div>
+</div>
+
+<div class="card">
+<div class="day-header" onclick="toggle(this)">Day 12 – Departure</div>
+<div class="day-content">
+<p>Fly back home.</p>
+</div>
+</div>
+
+</div>
+
+<!-- VISA -->
+<div id="visa" class="section">
+
+<div class="card">
+<div style="padding:20px;">
+<h3>🛂 Visa Process (India → Japan)</h3>
+<ul>
+<li>Apply via VFS Japan</li>
+<li>Processing time: 5–7 days</li>
+<li>Fee: ~₹500–₹800</li>
+</ul>
+</div>
+</div>
+
+<div class="card">
+<div style="padding:20px;">
+<h3>📄 Required Documents</h3>
+<ul>
+<li>Passport</li>
+<li>Bank statements (₹1–2L balance)</li>
+<li>ITR (last 2–3 years)</li>
+<li>Flight & hotel bookings</li>
+<li>Itinerary</li>
+</ul>
+</div>
+</div>
+
+</div>
+
+<script>
+function showSection(id) {
+    document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+}
+
+function toggle(el) {
+    el.parentElement.classList.toggle('active');
+}
+</script>
+
+</body>
+</html>

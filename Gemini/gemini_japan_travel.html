@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Japan Discovery: Expert Itinerary for Indian Travelers</title>
+    <style>
+        :root {
+            --primary: #d90429;
+            --secondary: #2b2d42;
+            --accent: #8d99ae;
+            --bg: #f8f9fa;
+            --card-bg: #ffffff;
+            --low-crowd: #2d6a4f;
+            --balanced: #f59e0b;
+            --popular: #ef233c;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            color: var(--secondary);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--secondary), #1a1c2c);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            border-bottom: 5px solid var(--primary);
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow-x: auto;
+        }
+
+        nav button {
+            background: none;
+            border: none;
+            padding: 1rem 1.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            color: var(--secondary);
+            transition: 0.3s;
+            white-space: nowrap;
+        }
+
+        nav button.active {
+            color: var(--primary);
+            border-bottom: 3px solid var(--primary);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Itinerary Styling */
+        .day-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            overflow: hidden;
+            border: 1px solid #eee;
+        }
+
+        .day-header {
+            padding: 1.2rem;
+            background: #fff;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .day-header h3 { margin: 0; color: var(--primary); }
+
+        .day-content {
+            padding: 1.5rem;
+            display: none;
+        }
+
+        .option-tabs {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 1rem;
+        }
+
+        .opt-btn {
+            padding: 8px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .btn-low { background: #e8f5e9; color: var(--low-crowd); }
+        .btn-bal { background: #fff8e1; color: var(--balanced); }
+        .btn-pop { background: #ffebee; color: var(--popular); }
+
+        .opt-content {
+            display: none;
+            padding: 1rem;
+            border-radius: 8px;
+            background: #fafafa;
+            border-left: 4px solid #ccc;
+        }
+
+        .active-opt { display: block !important; }
+        .btn-low.active { background: var(--low-crowd); color: white; }
+        .btn-bal.active { background: var(--balanced); color: white; }
+        .btn-pop.active { background: var(--popular); color: white; }
+
+        /* Tables & Lists */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            background: white;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        th { background-color: var(--secondary); color: white; }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .badge {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem;
+            color: var(--accent);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 600px) {
+            .option-tabs { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Japan Explorer 2026</h1>
+    <p>12-Day Nature & Culture Focused Journey (Indian Traveler Edition)</p>
+</header>
+
+<nav id="mainNav">
+    <button onclick="showSection('home')" class="active">Home</button>
+    <button onclick="showSection('itinerary')">Itinerary</button>
+    <button onclick="showSection('stay')">Where to Stay</button>
+    <button onclick="showSection('food')">Food & Dining</button>
+    <button onclick="showSection('visa')">Visa Info</button>
+    <button onclick="showSection('budget')">Budget</button>
+    <button onclick="showSection('tips')">Expert Tips</button>
+</nav>
+
+<div class="container">
+
+    <div id="home" class="section active">
+        <div class="card">
+            <h2>Welcome to your Personalized Japan Journey</h2>
+            <p>Kon'nichiwa! This itinerary is specifically designed for travelers from India starting their trip on <strong>May 20th</strong>. May is the perfect "Green Season"—pleasant temperatures and fewer crowds compared to the Sakura rush.</p>
+            <hr>
+            <h3>Trip Strategy:</h3>
+            <ul>
+                <li><strong>The 7 AM Rule:</strong> Beat the tour buses by starting early. You'll have temples to yourself.</li>
+                <li><strong>Regional Focus:</strong> Tokyo (Vibrant) &rarr; Kawaguchiko (Nature) &rarr; Kyoto (Zen) &rarr; Osaka (Food).</li>
+                <li><strong>Indian Palate:</strong> Tips on finding vegetarian food and handling the "No-Spice" gap.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="itinerary" class="section">
+        <h2>12-Day Detailed Itinerary</h2>
+        <p><i>Click a day to expand, then toggle the crowd level preference.</i></p>
+
+        <div class="day-card">
+            <div class="day-header" onclick="toggleDay(this)">
+                <h3>Day 1: Arrival in Tokyo & Shinjuku Gyoen</h3>
+                <span>▼</span>
+            </div>
+            <div class="day-content">
+                <div class="option-tabs">
+                    <button class="opt-btn btn-low active" onclick="setOption(this, 'd1-low')">🟢 Low Crowd</button>
+                    <button class="opt-btn btn-bal" onclick="setOption(this, 'd1-bal')">🟡 Balanced</button>
+                    <button class="opt-btn btn-pop" onclick="setOption(this, 'd1-pop')">🔴 Popular</button>
+                </div>
+
+                <div id="d1-low" class="opt-content active-opt">
+                    <h4>The "Soft Landing" Route</h4>
+                    <p><strong>Flow:</strong> Land at Narita/Haneda &rarr; Limousine Bus to Hotel &rarr; Shinjuku Gyoen National Garden &rarr; Early Dinner.</p>
+                    <p><strong>Why:</strong> Shinjuku Gyoen is massive; even with people, it feels empty. Perfect for shaking off jet lag with nature.</p>
+                    <p><strong>Transport:</strong> Airport Limousine Bus (easiest with luggage).</p>
+                    <p><strong>Food:</strong> <i>Ain Soph.Journey</i> (Vegan/Vegetarian friendly) in Shinjuku.</p>
+                </div>
+
+                <div id="d1-bal" class="opt-content">
+                    <h4>The City Skyline Route</h4>
+                    <p><strong>Flow:</strong> Hotel &rarr; Tokyo Metropolitan Government Building &rarr; Omoide Yokocho.</p>
+                    <p><strong>Why:</strong> Free views of the city without the crowds of Tokyo Skytree.</p>
+                </div>
+
+                <div id="d1-pop" class="opt-content">
+                    <h4>The Neon Lights Route</h4>
+                    <p><strong>Flow:</strong> Shinjuku Station &rarr; Kabukicho &rarr; Don Quijote Shopping.</p>
+                    <p><strong>Why:</strong> Intense, loud, and quintessentially "Tokyo."</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="day-card">
+            <div class="day-header" onclick="toggleDay(this)">
+                <h3>Day 2: Coastal Zen (Kamakura Day Trip)</h3>
+                <span>▼</span>
+            </div>
+            <div class="day-content">
+                <div class="option-tabs">
+                    <button class="opt-btn btn-low active" onclick="setOption(this, 'd2-low')">🟢 Low Crowd</button>
+                    <button class="opt-btn btn-bal" onclick="setOption(this, 'd2-bal')">🟡 Balanced</button>
+                    <button class="opt-btn btn-pop" onclick="setOption(this, 'd2-pop')">🔴 Popular</button>
+                </div>
+
+                <div id="d2-low" class="opt-content active-opt">
+                    <h4>Hokokuji Bamboo Forest & Zen</h4>
+                    <p><strong>Flow:</strong> Tokyo &rarr; Kamakura Station &rarr; Hokokuji Temple &rarr; Hiking Trail to Zeniarai Benzaiten.</p>
+                    <p><strong>Experience:</strong> Sip Matcha in a hidden bamboo grove (much quieter than Kyoto’s Arashiyama).</p>
+                    <p><strong>Transport:</strong> JR Yokosuka Line (60 mins).</p>
+                    <p><strong>Tip:</strong> Avoid the main "Komachi-dori" shopping street; take the back alleys.</p>
+                </div>
+                
+                <div id="d2-bal" class="opt-content">
+                    <h4>The Great Buddha Path</h4>
+                    <p><strong>Flow:</strong> Kotoku-in (Giant Buddha) &rarr; Hase-dera Temple &rarr; Yuigahama Beach.</p>
+                </div>
+
+                <div id="d2-pop" class="opt-content">
+                    <h4>Enoshima Island</h4>
+                    <p><strong>Flow:</strong> Enoden Train &rarr; Enoshima Shrine &rarr; Sea Candle.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="day-card">
+            <div class="day-header" onclick="toggleDay(this)">
+                <h3>Day 3-4: Mt. Fuji Immersive Stay</h3>
+                <span>▼</span>
+            </div>
+            <div class="day-content">
+                <p>Transfer via Fuji Excursion Train or Highway Bus from Shinjuku.</p>
+                <div class="option-tabs">
+                    <button class="opt-btn btn-low active" onclick="setOption(this, 'd3-low')">🟢 Low Crowd</button>
+                    <button class="opt-btn btn-bal" onclick="setOption(this, 'd3-bal')">🟡 Balanced</button>
+                    <button class="opt-btn btn-pop" onclick="setOption(this, 'd3-pop')">🔴 Popular</button>
+                </div>
+
+                <div id="d3-low" class="opt-content active-opt">
+                    <h4>Oishi Park & Lake Saiko</h4>
+                    <p><strong>Activity:</strong> Cycle around the quieter north shore of Lake Kawaguchi. Visit the <i>Saiko Iyashi-no-Sato Nenba</i> (Traditional thatched village).</p>
+                    <p><strong>Why:</strong> Most tourists stay at the ropeway; Saiko is peaceful and offers stunning Fuji views.</p>
+                </div>
+                <div id="d3-bal" class="opt-content"><h4>Chureito Pagoda at Sunrise</h4><p>Must arrive by 5:30 AM to beat the buses.</p></div>
+                <div id="d3-pop" class="opt-content"><h4>Fuji-Q Highland</h4><p>High-adrenaline theme park with crowds.</p></div>
+            </div>
+        </div>
+
+        <div class="day-card">
+            <div class="day-header" onclick="toggleDay(this)">
+                <h3>Day 5-8: Kyoto - The Cultural Heart</h3>
+                <span>▼</span>
+            </div>
+            <div class="day-content">
+                <div class="option-tabs">
+                    <button class="opt-btn btn-low active" onclick="setOption(this, 'd5-low')">🟢 Low Crowd</button>
+                    <button class="opt-btn btn-bal" onclick="setOption(this, 'd5-bal')">🟡 Balanced</button>
+                    <button class="opt-btn btn-pop" onclick="setOption(this, 'd5-pop')">🔴 Popular</button>
+                </div>
+
+                <div id="d5-low" class="opt-content active-opt">
+                    <h4>The "Silver" Path</h4>
+                    <p><strong>Day 5:</strong> Ginkaku-ji (Silver Pavilion) early morning &rarr; Philosopher's Path &rarr; Nanzen-ji hidden aqueduct.</p>
+                    <p><strong>Day 6:</strong> Arashiyama <i>Saga-Toriimoto</i> Preserved Street (avoiding the main bamboo forest bridge).</p>
+                    <p><strong>Day 7:</strong> Uji Day Trip - Green tea capital and Byodo-in Temple.</p>
+                </div>
+                <div id="d5-bal" class="opt-content"><h4>Temples & Gion</h4><p>Kiyomizu-dera late afternoon + Gion walk at dusk.</p></div>
+                <div id="d5-pop" class="opt-content"><h4>Fushimi Inari & Kinkaku-ji</h4><p>The iconic 10,000 gates and Golden Pavilion (Very crowded).</p></div>
+            </div>
+        </div>
+
+        <div class="day-card">
+            <div class="day-header" onclick="toggleDay(this)">
+                <h3>Day 9-11: Osaka & Nara</h3>
+                <span>▼</span>
+            </div>
+            <div class="day-content">
+                <p><strong>Day 9:</strong> Nara Day Trip (Deer Park). <i>Pro-tip: Walk past the main crowd to Nigatsu-do temple.</i></p>
+                <p><strong>Day 10:</strong> Osaka Exploration (Food focus).</p>
+                <div class="option-tabs">
+                    <button class="opt-btn btn-low active" onclick="setOption(this, 'd9-low')">🟢 Low Crowd</button>
+                    <button class="opt-btn btn-bal" onclick="setOption(this, 'd9-bal')">🟡 Balanced</button>
+                    <button class="opt-btn btn-pop" onclick="setOption(this, 'd9-pop')">🔴 Popular</button>
+                </div>
+                <div id="d9-low" class="opt-content active-opt">
+                    <h4>Minoo Park & Nakazakicho</h4>
+                    <p>Hike to a waterfall inside the city (Minoo) and explore the hipster/vintage cafe district (Nakazakicho).</p>
+                </div>
+                <div id="d9-bal" class="opt-content"><h4>Osaka Castle & Shinsekai</h4><p>History mixed with retro 1920s vibes.</p></div>
+                <div id="d9-pop" class="opt-content"><h4>Dotonbori & Universal Studios</h4><p>The flashing lights and Mario World (extremely busy).</p></div>
+            </div>
+        </div>
+
+        <div class="day-card">
+            <div class="day-header" onclick="toggleDay(this)">
+                <h3>Day 12: Return to Tokyo & Shopping</h3>
+                <span>▼</span>
+            </div>
+            <div class="day-content">
+                <p>Shinkansen back to Tokyo. Final souvenir shopping at <strong>Ginza Itoya</strong> (Stationery) or <strong>Don Quijote</strong>.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="stay" class="section">
+        <h2>Recommended Accommodation</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Tokyo: Shinjuku or Ueno</h3>
+                <p><strong>Why:</strong> Best connectivity for day trips and airports.</p>
+                <ul>
+                    <li>Budget: APA Hotels (₹6k - ₹8k)</li>
+                    <li>Mid: Hotel Sunroute Plaza (₹12k - ₹15k)</li>
+                    <li>Premium: Park Hyatt Tokyo</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Kyoto: Near Sanjo or Gion</h3>
+                <p><strong>Why:</strong> Walkable to temples and local eateries.</p>
+                <ul>
+                    <li>Ryokan: Gion Hatanaka (Traditional Experience)</li>
+                    <li>Modern: Cross Hotel Kyoto (₹15k+)</li>
+                    <li>Airbnb: Search for "Machiya" (Traditional townhouse)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="food" class="section">
+        <h2>Food Guide for Indians</h2>
+        <div class="card">
+            <h3>Dietary Tips</h3>
+            <ul>
+                <li><strong>Vegetarianism:</strong> Japan uses <i>Dashi</i> (fish stock) in everything. Carry "Dietary Requirement" cards in Japanese.</li>
+                <li><strong>Indian Food:</strong> You'll find great curry houses (like Coco Ichibanya with veg options) and authentic Indian spots in Nishi-Kasai (Tokyo).</li>
+            </ul>
+            <h3>Must Try:</h3>
+            <div class="grid">
+                <div class="card">
+                    <h4>Teppanyaki</h4>
+                    <p>Grilled vegetables and paneer-like tofu or high-grade Wagyu.</p>
+                </div>
+                <div class="card">
+                    <h4>Tempura</h4>
+                    <p>Fried veggies/seafood. Very light and crisp.</p>
+                </div>
+                <div class="card">
+                    <h4>Matcha Everything</h4>
+                    <p>Especially in Uji and Kyoto.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="visa" class="section">
+        <div class="card">
+            <h2>Visa for Indian Citizens</h2>
+            <p><span class="badge" style="background:#d1fae5; color:#065f46">Updated 2026</span></p>
+            <ol>
+                <li><strong>Type:</strong> Short-term Tourist Visa.</li>
+                <li><strong>e-Visa:</strong> Indian passport holders can now apply for an e-Visa online if residing in India.</li>
+                <li><strong>Documents:</strong>
+                    <ul>
+                        <li>Valid Passport</li>
+                        <li>Photo (2x2 inches, white background)</li>
+                        <li>ITR (Last 3 years)</li>
+                        <li>Bank Statement (Last 6 months, balance > ₹3-4 Lakhs)</li>
+                        <li>Cover Letter & Itinerary</li>
+                    </ul>
+                </li>
+                <li><strong>Processing:</strong> 5-7 working days via VFS Global.</li>
+            </ol>
+        </div>
+    </div>
+
+    <div id="budget" class="section">
+        <h2>Estimated Budget (Per Person)</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Cost (INR)</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Flights (Round trip)</td>
+                    <td>₹65,000 - ₹85,000</td>
+                    <td>Direct from Delhi/Mumbai is costlier.</td>
+                </tr>
+                <tr>
+                    <td>Accommodation (12 Nights)</td>
+                    <td>₹80,000</td>
+                    <td>Based on ₹6.5k/night (Twin sharing).</td>
+                </tr>
+                <tr>
+                    <td>Food & Dining</td>
+                    <td>₹40,000</td>
+                    <td>Mix of Konbini and Mid-range.</td>
+                </tr>
+                <tr>
+                    <td>Transport (Internal)</td>
+                    <td>₹35,000</td>
+                    <td>Shinkansen + Metro + Local Bus.</td>
+                </tr>
+                <tr>
+                    <td>Misc / Shopping</td>
+                    <td>₹25,000</td>
+                    <td>Entrance fees & souvenirs.</td>
+                </tr>
+                <tr style="font-weight:bold; color:var(--primary)">
+                    <td>Total Estimate</td>
+                    <td>₹2,45,000 - ₹2,75,000</td>
+                    <td>Excluding heavy shopping.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="tips" class="section">
+        <div class="grid">
+            <div class="card">
+                <h3>Essential Hacks</h3>
+                <ul>
+                    <li><strong>Suica Card:</strong> Add it to your Apple/Google Wallet. Tap and go for all trains and vending machines.</li>
+                    <li><strong>Luggage Forwarding (Takkyubin):</strong> Send your bags from Tokyo to Kyoto for ₹1,500. Travel light on the bullet train!</li>
+                    <li><strong>Trash:</strong> There are no public dustbins. Carry a small bag to keep your trash until you reach your hotel.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Etiquette</h3>
+                <ul>
+                    <li>No talking on phones in trains.</li>
+                    <li>No tipping! It's considered rude.</li>
+                    <li>Stand on the correct side of the escalator (Left in Tokyo, Right in Osaka).</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <p>Hand-crafted for your Japanese Adventure &copy; 2026</p>
+</footer>
+
+<script>
+    function showSection(id) {
+        // Update Nav
+        document.querySelectorAll('nav button').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        event.target.classList.add('active');
+
+        // Update Sections
+        document.querySelectorAll('.section').forEach(sec => {
+            sec.classList.remove('active');
+        });
+        document.getElementById(id).classList.add('active');
+        
+        window.scrollTo(0,0);
+    }
+
+    function toggleDay(el) {
+        const content = el.nextElementSibling;
+        const icon = el.querySelector('span');
+        if (content.style.display === "block") {
+            content.style.display = "none";
+            icon.innerText = "▼";
+        } else {
+            content.style.display = "block";
+            icon.innerText = "▲";
+        }
+    }
+
+    function setOption(btn, optId) {
+        const parent = btn.closest('.day-content');
+        
+        // Update Buttons
+        parent.querySelectorAll('.opt-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        // Update Content
+        parent.querySelectorAll('.opt-content').forEach(c => c.classList.remove('active-opt'));
+        document.getElementById(optId).classList.add('active-opt');
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interactive Japan Itinerary</title>
+
+<style>
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    background: #f4f6f9;
+    color: #333;
+}
+
+header {
+    background: linear-gradient(135deg, #ff5f6d, #ffc371);
+    color: white;
+    padding: 25px;
+    text-align: center;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    overflow: hidden;
+}
+
+.day-header {
+    padding: 15px 20px;
+    cursor: pointer;
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+}
+
+.day-header:hover {
+    background: #f9f9f9;
+}
+
+.day-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    padding: 0 20px;
+}
+
+.day-content p {
+    margin: 10px 0;
+}
+
+.active .day-content {
+    max-height: 300px;
+    padding: 15px 20px;
+}
+
+.icon {
+    transition: transform 0.3s ease;
+}
+
+.active .icon {
+    transform: rotate(180deg);
+}
+
+.tag {
+    display: inline-block;
+    background: #ffe0e6;
+    color: #d6336c;
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    color: #777;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🇯🇵 Japan Travel Itinerary</h1>
+    <p>12 Days | Starting 20 May</p>
+</header>
+
+<div class="container">
+
+<!-- Day Cards -->
+
+<div class="card">
+    <div class="day-header" onclick="toggleDay(this)">
+        Day 1 – Tokyo Arrival
+        <span class="icon">▼</span>
+    </div>
+    <div class="day-content">
+        <p>Arrival in Tokyo, hotel check-in.</p>
+        <p>Visit Shibuya Crossing, evening exploration.</p>
+        <span class="tag">Light Day</span>
+    </div>
+</div>
+
+<div class="card">
+    <div class="day-header" onclick="toggleDay(this)">
+        Day 2 – Tokyo Highlights
+        <span class="icon">▼</span>
+    </div>
+    <div class="day-content">
+        <p>Senso-ji Temple, Tokyo Skytree.</p>
+        <p>Explore Akihabara (anime + electronics).</p>
+    </div>
+</div>
+
+<div class="card">
+    <div class="day-header" onclick="toggleDay(this)">
+        Day 3 – Tokyo Shopping
+        <span class="icon">▼</span>
+    </div>
+    <div class="day-content">
+        <p>Meiji Shrine, Harajuku street culture.</p>
+        <p>Luxury shopping in Ginza.</p>
+    </div>
+</div>
+
+<div class="card">
+    <div class="day-header" onclick="toggleDay(this)">
+        Day 4 – Hakone (Mt Fuji)
+        <span class="icon">▼</span>
+    </div>
+    <div class="day-content">
+        <p>Travel to Hakone (~2 hrs).</p>
+        <p>Lake Ashi cruise, ropeway, onsen stay.</p>
+    </div>
+</div>
+
+<div class="card">
+    <div class="day-header" onclick="toggleDay(this)">
+        Day 5 – Kyoto Transfer
+        <span class="icon">▼</span>
+    </div>
+    <div class="day-content">
+        <p>Shinkansen bullet train to Kyoto.</p>
+        <p>Explore Gion district in evening.</p>
+    </div>
+</div>
+
+<div class="card">
+    <div class="day-header" onclick="toggleDay(this)">
+        Day 6 – Kyoto Temples
+        <span class="icon">▼</span>
+    </div>
+    <div class="day-content">
+        <p>Fushimi Inari Shrine, Kinkaku-ji.</p>
+        <p>Dinner in Pontocho Alley.</p>
+    </div>
+</div>
+
+<div class="card">
+    <div class="day-header" onclick="toggleDay(this)">
+        Day 7 – Arashiyama
+        <span class="icon">▼</span>
+    </div>
+    <div class="day-content">
+        <p>Bamboo Grove, Monkey Park.</p>
+        <p>Optional tea ceremony.</p>
+    </div>
+</div>
+
+<div class="card">
+    <div class="day-header" onclick="toggleDay(this)">
+        Day 8 – Nara Day Trip
+        <span class="icon">▼</span>
+    </div>
+    <div class="day-content">
+        <p>Nara Park (deer), Todai-ji Temple.</p>
+        <p>Return to Kyoto.</p>
+    </div>
+</div>
+
+<div class="card">
+    <div class="day-header" onclick="toggleDay(this)">
+        Day 9 – Osaka
+        <span class="icon">▼</span>
+    </div>
+    <div class="day-content">
+        <p>Osaka Castle.</p>
+        <p>Dotonbori nightlife and street food.</p>
+    </div>
+</div>
+
+<div class="card">
+    <div class="day-header" onclick="toggleDay(this)">
+        Day 10 – Osaka Fun
+        <span class="icon">▼</span>
+    </div>
+    <div class="day-content">
+        <p>Universal Studios Japan (optional).</p>
+        <p>Explore Shinsekai area.</p>
+    </div>
+</div>
+
+<div class="card">
+    <div class="day-header" onclick="toggleDay(this)">
+        Day 11 – Free Day
+        <span class="icon">▼</span>
+    </div>
+    <div class="day-content">
+        <p>Shopping, relaxation, café hopping.</p>
+    </div>
+</div>
+
+<div class="card">
+    <div class="day-header" onclick="toggleDay(this)">
+        Day 12 – Departure
+        <span class="icon">▼</span>
+    </div>
+    <div class="day-content">
+        <p>Return flight to India.</p>
+    </div>
+</div>
+
+</div>
+
+<div class="footer">
+    ✈️ Tap each day to expand your plan
+</div>
+
+<script>
+function toggleDay(element) {
+    const card = element.parentElement;
+    card.classList.toggle("active");
+}
+</script>
+
+</body>
+</html>

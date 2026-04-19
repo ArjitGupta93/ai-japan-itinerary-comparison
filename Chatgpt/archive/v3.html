@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Japan Travel Planner V3</title>
+
+<style>
+body { font-family: 'Segoe UI', sans-serif; margin:0; background:#f4f6f9; }
+header { background: linear-gradient(135deg,#ff5f6d,#ffc371); color:white; padding:20px; text-align:center; }
+nav { display:flex; justify-content:center; background:white; }
+nav button { padding:12px 18px; border:none; background:none; cursor:pointer; font-weight:bold; }
+nav button:hover { color:#ff5f6d; }
+
+.section { display:none; padding:20px; max-width:1000px; margin:auto; }
+.active { display:block; }
+
+.card { background:white; border-radius:12px; margin-bottom:15px; box-shadow:0 4px 10px rgba(0,0,0,0.08); }
+
+.day-header {
+    padding:15px;
+    cursor:pointer;
+    display:flex;
+    justify-content:space-between;
+    font-weight:bold;
+}
+
+.day-content {
+    max-height:0;
+    overflow:hidden;
+    transition:0.4s ease;
+    padding:0 15px;
+}
+
+.card.active .day-content {
+    max-height:600px;
+    padding:15px;
+}
+
+.tag {
+    background:#ffe0e6;
+    padding:5px 10px;
+    border-radius:20px;
+    font-size:12px;
+    margin-right:5px;
+}
+
+ul { padding-left:18px; }
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>🇯🇵 Japan Travel Planner</h1>
+<p>Round Trip: Tokyo | 12 Days | Starting 20 May</p>
+</header>
+
+<nav>
+<button onclick="showSection('home')">Home</button>
+<button onclick="showSection('itinerary')">Itinerary</button>
+<button onclick="showSection('visa')">Visa</button>
+</nav>
+
+<!-- HOME -->
+<div id="home" class="section active">
+
+<div class="card" style="padding:20px;">
+<h2>✈️ Trip Overview</h2>
+<p><strong>Route:</strong> Tokyo → Hakone → Kyoto → Osaka → Tokyo</p>
+<p><strong>Weather:</strong> 15–25°C (Spring)</p>
+<p><strong>Budget:</strong> ₹1.5L – ₹2.3L</p>
+</div>
+
+<div class="card" style="padding:20px;">
+<h2>🎢 Theme Parks</h2>
+<ul>
+<li>Tokyo Disneyland (best for full-day fun)</li>
+<li>Universal Studios Japan – Harry Potter World</li>
+</ul>
+</div>
+
+</div>
+
+<!-- ITINERARY -->
+<div id="itinerary" class="section">
+
+<!-- DAY TEMPLATE -->
+<div class="card">
+<div class="day-header" onclick="toggle(this)">Day 1 – Tokyo Arrival</div>
+<div class="day-content">
+<p><strong>Morning:</strong> Arrival + hotel check-in</p>
+<p><strong>Afternoon:</strong> Rest + local exploration</p>
+<p><strong>Evening:</strong> Shibuya Crossing + dinner</p>
+<p><strong>Transport:</strong> Airport train</p>
+<p><strong>Cost:</strong> ₹8K–₹10K</p>
+<span class="tag">Light Day</span>
+</div>
+</div>
+
+<div class="card">
+<div class="day-header" onclick="toggle(this)">Day 2 – Tokyo Disneyland</div>
+<div class="day-content">
+<p><strong>Full Day:</strong> Rides, shows, parades</p>
+<p><strong>Tips:</strong> Reach early, book tickets in advance</p>
+<p><strong>Cost:</strong> ₹6K–₹9K</p>
+</div>
+</div>
+
+<div class="card">
+<div class="day-header" onclick="toggle(this)">Day 3 – Tokyo Exploration</div>
+<div class="day-content">
+<ul>
+<li>Senso-ji Temple</li>
+<li>Tokyo Skytree</li>
+<li>Akihabara (anime + electronics)</li>
+</ul>
+<p><strong>Cost:</strong> ₹7K–₹9K</p>
+</div>
+</div>
+
+<div class="card">
+<div class="day-header" onclick="toggle(this)">Day 4 – Hakone (Mt Fuji)</div>
+<div class="day-content">
+<ul>
+<li>Lake Ashi cruise</li>
+<li>Ropeway + Mt Fuji views</li>
+<li>Onsen stay</li>
+</ul>
+<p><strong>Travel:</strong> ~2 hrs</p>
+<p><strong>Cost:</strong> ₹12K–₹15K</p>
+</div>
+</div>
+
+<div class="card">
+<div class="day-header" onclick="toggle(this)">Day 5 – Kyoto Transfer</div>
+<div class="day-content">
+<p>Shinkansen (~2.5 hrs)</p>
+<p>Explore Gion district</p>
+<p><strong>Cost:</strong> ₹10K–₹12K</p>
+</div>
+</div>
+
+<div class="card">
+<div class="day-header" onclick="toggle(this)">Day 6 – Kyoto Temples</div>
+<div class="day-content">
+<ul>
+<li>Fushimi Inari Shrine</li>
+<li>Kinkaku-ji (Golden Pavilion)</li>
+<li>Pontocho dining</li>
+</ul>
+<p><strong>Cost:</strong> ₹6K–₹8K</p>
+</div>
+</div>
+
+<div class="card">
+<div class="day-header" onclick="toggle(this)">Day 7 – Arashiyama</div>
+<div class="day-content">
+<ul>
+<li>Bamboo Grove</li>
+<li>Monkey Park</li>
+<li>Tea ceremony</li>
+</ul>
+<p><strong>Cost:</strong> ₹7K–₹9K</p>
+</div>
+</div>
+
+<div class="card">
+<div class="day-header" onclick="toggle(this)">Day 8 – Nara</div>
+<div class="day-content">
+<ul>
+<li>Nara Park (deer)</li>
+<li>Todai-ji Temple</li>
+</ul>
+<p><strong>Cost:</strong> ₹5K–₹7K</p>
+</div>
+</div>
+
+<div class="card">
+<div class="day-header" onclick="toggle(this)">Day 9 – Osaka</div>
+<div class="day-content">
+<ul>
+<li>Osaka Castle</li>
+<li>Dotonbori food street</li>
+</ul>
+<p><strong>Cost:</strong> ₹7K–₹9K</p>
+</div>
+</div>
+
+<div class="card">
+<div class="day-header" onclick="toggle(this)">Day 10 – Universal Studios</div>
+<div class="day-content">
+<p>Harry Potter World 🎢</p>
+<p><strong>Cost:</strong> ₹8K–₹12K</p>
+</div>
+</div>
+
+<div class="card">
+<div class="day-header" onclick="toggle(this)">Day 11 – Back to Tokyo</div>
+<div class="day-content">
+<p>Shopping + relax</p>
+</div>
+</div>
+
+<div class="card">
+<div class="day-header" onclick="toggle(this)">Day 12 – Departure</div>
+<div class="day-content">
+<p>Return flight ✈️</p>
+</div>
+</div>
+
+</div>
+
+<!-- VISA -->
+<div id="visa" class="section">
+
+<div class="card" style="padding:20px;">
+<h3>🛂 Visa Process</h3>
+<ul>
+<li>Apply via VFS Japan</li>
+<li>Processing: 5–7 days</li>
+<li>Fee: ₹500–₹800</li>
+</ul>
+</div>
+
+<div class="card" style="padding:20px;">
+<h3>📄 Documents Required</h3>
+<ul>
+<li>Passport</li>
+<li>Bank statements (₹1–2L)</li>
+<li>ITR (2–3 years)</li>
+<li>Flights + hotel bookings</li>
+<li>Itinerary</li>
+</ul>
+</div>
+
+</div>
+
+<script>
+function showSection(id){
+document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+}
+
+function toggle(el){
+el.parentElement.classList.toggle('active');
+}
+</script>
+
+</body>
+</html>

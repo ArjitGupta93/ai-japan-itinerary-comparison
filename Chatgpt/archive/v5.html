@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Japan Travel Planner V5+</title>
+
+<style>
+
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin:0;
+    background:#f9fbfd;
+}
+
+header { background: linear-gradient(135deg,#4facfe,#00f2fe); color:white; padding:20px; text-align:center; }
+
+header h1 { margin:0; color:#2c3e50; }
+
+nav {
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    padding:10px;
+    background:#ffffff;
+    border-bottom:1px solid #eee;
+}
+
+nav button {
+    padding:10px 16px;
+    border:none;
+    border-radius:20px;
+    background:#ecf0f1;
+    cursor:pointer;
+}
+
+nav button:hover { background:#dfe6e9; }
+
+.section {
+    display:none;
+    padding:20px;
+    max-width:1200px;
+    margin:auto;
+}
+
+.active { display:block; }
+
+.card {
+    background:white;
+    border-radius:12px;
+    padding:18px;
+    margin-bottom:20px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.06);
+}
+
+.day-header {
+    font-weight:bold;
+    cursor:pointer;
+    padding:12px;
+    background:#f1f5f9;
+    border-radius:8px;
+}
+
+.columns {
+    display:flex;
+    gap:12px;
+    margin-top:10px;
+    flex-wrap:wrap;
+}
+
+.col {
+    flex:1;
+    min-width:300px;
+    border-radius:10px;
+    padding:12px;
+}
+
+.low { background:#eafaf1; }
+.mid { background:#fff8e1; }
+.high { background:#fdecea; }
+
+.toggle-content { display:none; }
+.card.active .toggle-content { display:block; }
+
+h3 { margin-top:0; }
+
+ul { padding-left:18px; }
+
+.highlight {
+    background:#e3f2fd;
+    padding:10px;
+    border-radius:8px;
+    margin-top:10px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>🇯🇵 Japan Travel Planner</h1>
+<p>Tokyo Round Trip | Culture • Nature • Smart Travel</p>
+</header>
+
+<nav>
+<button onclick="showSection('home')">Home</button>
+<button onclick="showSection('itinerary')">Itinerary</button>
+<button onclick="showSection('stay')">Stay</button>
+<button onclick="showSection('food')">Food</button>
+<button onclick="showSection('budget')">Budget</button>
+<button onclick="showSection('visa')">Visa</button>
+<button onclick="showSection('tips')">Tips</button>
+</nav>
+
+<!-- HOME -->
+<div id="home" class="section active">
+
+<div class="card">
+<h2>🌿 Trip Overview</h2>
+<ul>
+<li><b>Duration:</b> 10–12 Days</li>
+<li><b>Route:</b> Tokyo → Kamakura → Kawaguchiko → Kyoto → Osaka → Tokyo</li>
+<li><b>Weather:</b> 15–25°C (Spring, pleasant)</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>✨ Travel Style</h2>
+<ul>
+<li>Low crowd & hidden gems focus</li>
+<li>Balanced + popular alternatives available</li>
+<li>Slow travel to reduce fatigue</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>🎯 Key Highlights</h2>
+<ul>
+<li>Mt Fuji views (Kawaguchiko)</li>
+<li>Kyoto temples + villages</li>
+<li>Osaka street food</li>
+<li>Optional Theme Park (Universal Studios)</li>
+</ul>
+</div>
+
+</div>
+
+<div id="itinerary" class="section">
+
+<!-- DAY 1 -->
+<div class="card">
+<div class="day-header" onclick="toggle(this)">Day 1 – Tokyo Arrival</div>
+<div class="toggle-content">
+<div class="columns">
+
+<div class="col low">
+<h3>🟢 Slow Arrival</h3>
+<ul>
+<li>Arrive at Tokyo (Narita/Haneda), complete immigration (~1 hr)</li>
+<li>Take airport limousine bus/train to hotel (1–1.5 hr)</li>
+<li>Evening: Explore nearby quiet streets (Daikanyama or local neighborhood)</li>
+<li>Dinner: Light Japanese meal (ramen or convenience store bento)</li>
+</ul>
+</div>
+
+<div class="col mid">
+<h3>🟡 Light Exploration</h3>
+<ul>
+<li>After check-in, visit a nearby café district</li>
+<li>Walk through local shopping street (non-touristy)</li>
+<li>Try your first sushi/ramen experience</li>
+</ul>
+</div>
+
+<div class="col high">
+<h3>🔴 Popular Start</h3>
+<ul>
+<li>Visit Shibuya Crossing (evening lights)</li>
+<li>Optional: Tokyo Tower night view</li>
+<li>Expect crowds but great first impression of Tokyo</li>
+</ul>
+</div>
+
+</div>
+<div class="highlight">💡 Keep it light to recover from travel fatigue</div>
+</div>
+</div>
+
+<!-- DAY 2 -->
+<div class="card">
+<div class="day-header" onclick="toggle(this)">Day 2 – Tokyo Exploration</div>
+<div class="toggle-content">
+<div class="columns">
+
+<div class="col low">
+<h3>🟢 Local Tokyo</h3>
+<ul>
+<li>Start early at Meiji Shrine (peaceful forest shrine, 8 AM)</li>
+<li>Explore Shimokitazawa – vintage shops, indie cafés</li>
+<li>Lunch at a small ramen shop (~¥1000)</li>
+<li>Evening: Quiet walk along Meguro river</li>
+</ul>
+</div>
+
+<div class="col mid">
+<h3>🟡 Balanced Tokyo</h3>
+<ul>
+<li>Visit Meiji Shrine + Harajuku street</li>
+<li>Explore Shinjuku Gyoen park (relaxation spot)</li>
+<li>Evening: Shinjuku (food + lights)</li>
+</ul>
+</div>
+
+<div class="col high">
+<h3>🔴 Busy Tokyo</h3>
+<ul>
+<li>Akihabara (anime + electronics)</li>
+<li>Shinjuku nightlife district</li>
+<li>Expect heavy crowds and long walking hours</li>
+</ul>
+</div>
+
+</div>
+<div class="highlight">🚇 Use metro pass | Cost: ₹6k–₹10k</div>
+</div>
+</div>
+
+<!-- DAY 3 -->
+<div class="card">
+<div class="day-header" onclick="toggle(this)">Day 3 – Kamakura Day Trip</div>
+<div class="toggle-content">
+<div class="columns">
+
+<div class="col low">
+<h3>🟢 Nature + Peace</h3>
+<ul>
+<li>Take train (~1 hr from Tokyo)</li>
+<li>Visit lesser-known temples (Zeniarai Shrine)</li>
+<li>Walk coastal trail with ocean views</li>
+<li>Relax at a beach café</li>
+</ul>
+</div>
+
+<div class="col mid">
+<h3>🟡 Classic Kamakura</h3>
+<ul>
+<li>Visit Great Buddha (Daibutsu)</li>
+<li>Explore Hasedera Temple (gardens + views)</li>
+<li>Lunch: Local seafood or vegetarian tempura</li>
+</ul>
+</div>
+
+<div class="col high">
+<h3>🔴 Tourist Route</h3>
+<ul>
+<li>Main temple circuit + Komachi street shopping</li>
+<li>Crowded but lively atmosphere</li>
+</ul>
+</div>
+
+</div>
+<div class="highlight">🚆 Round trip ~₹1500 | Great cultural escape from Tokyo</div>
+</div>
+</div>
+
+<!-- DAY 4 -->
+<div class="card">
+<div class="day-header" onclick="toggle(this)">Day 4 – Mt Fuji (Kawaguchiko)</div>
+<div class="toggle-content">
+<div class="columns">
+
+<div class="col low">
+<h3>🟢 Scenic Retreat</h3>
+<ul>
+<li>Travel via bus/train (~2.5 hrs)</li>
+<li>Walk around Lake Kawaguchi (peaceful Fuji views)</li>
+<li>Stay in Ryokan + Onsen experience</li>
+<li>Sunset photography by lake</li>
+</ul>
+</div>
+
+<div class="col mid">
+<h3>🟡 Balanced</h3>
+<ul>
+<li>Cable car to Mt Fuji viewpoint</li>
+<li>Lake cruise</li>
+<li>Visit small museums nearby</li>
+</ul>
+</div>
+
+<div class="col high">
+<h3>🔴 Popular</h3>
+<ul>
+<li>Visit crowded Instagram photo spots</li>
+<li>Tour bus circuits</li>
+</ul>
+</div>
+
+</div>
+<div class="highlight">🏔 Stay overnight | ₹10k–₹20k</div>
+</div>
+</div>
+
+<!-- DAY 5 -->
+<div class="card">
+<div class="day-header" onclick="toggle(this)">Day 5 – Travel to Kyoto</div>
+<div class="toggle-content">
+<div class="columns">
+
+<div class="col low">
+<ul>
+<li>Take Shinkansen (~2.5 hrs)</li>
+<li>Relax at hotel after check-in</li>
+<li>Evening walk in quiet Kyoto streets</li>
+</ul>
+</div>
+
+<div class="col mid">
+<ul>
+<li>Visit Gion district (traditional streets)</li>
+<li>Spot geisha (evening)</li>
+</ul>
+</div>
+
+<div class="col high">
+<ul>
+<li>Explore Nishiki market (busy food street)</li>
+</ul>
+</div>
+
+</div>
+<div class="highlight">🚄 Cost ~₹8k–₹12k</div>
+</div>
+</div>
+
+<!-- DAY 6 -->
+<div class="card">
+<div class="day-header" onclick="toggle(this)">Day 6 – Kyoto Temples</div>
+<div class="toggle-content">
+<div class="columns">
+
+<div class="col low">
+<h3>🟢 Best Experience</h3>
+<ul>
+<li>Visit Fushimi Inari at 6 AM (empty torii gates)</li>
+<li>Explore deeper hiking trails beyond main shrine</li>
+<li>Afternoon rest + café</li>
+</ul>
+</div>
+
+<div class="col mid">
+<ul>
+<li>Fushimi Inari (8 AM)</li>
+<li>Gion streets + tea house</li>
+</ul>
+</div>
+
+<div class="col high">
+<ul>
+<li>Bamboo Grove + Golden Pavilion</li>
+<li>Expect heavy crowds</li>
+</ul>
+</div>
+
+</div>
+<div class="highlight">⏰ Early start = best experience</div>
+</div>
+</div>
+
+<!-- DAY 7 -->
+<div class="card">
+<div class="day-header" onclick="toggle(this)">Day 7 – Hidden Kyoto</div>
+<div class="toggle-content">
+<div class="columns">
+
+<div class="col low">
+<ul>
+<li>Visit Ohara village (rural Kyoto)</li>
+<li>Explore Sanzen-in temple (nature + silence)</li>
+<li>Local countryside lunch</li>
+</ul>
+</div>
+
+<div class="col mid">
+<ul>
+<li>Philosopher’s Path walk</li>
+<li>Visit small temples along route</li>
+</ul>
+</div>
+
+<div class="col high">
+<ul>
+<li>Main Kyoto temple circuit</li>
+</ul>
+</div>
+
+</div>
+</div>
+</div>
+
+<!-- DAY 8 -->
+<div class="card">
+<div class="day-header" onclick="toggle(this)">Day 8 – Nature Day</div>
+<div class="toggle-content">
+<div class="columns">
+
+<div class="col low">
+<ul>
+<li>Kurama to Kibune hike (mountain trail)</li>
+<li>Hot spring experience</li>
+</ul>
+</div>
+
+<div class="col mid">
+<ul>
+<li>Scenic train ride</li>
+<li>Light walking trails</li>
+</ul>
+</div>
+
+<div class="col high">
+<ul>
+<li>Kyoto city exploration</li>
+</ul>
+</div>
+
+</div>
+</div>
+</div>
+
+<!-- DAY 9 -->
+<div class="card">
+<div class="day-header" onclick="toggle(this)">Day 9 – Osaka</div>
+<div class="toggle-content">
+<div class="columns">
+
+<div class="col low">
+<ul>
+<li>Explore quieter food alleys</li>
+<li>Try local okonomiyaki</li>
+</ul>
+</div>
+
+<div class="col mid">
+<ul>
+<li>Dotonbori street food</li>
+<li>Shopping in Namba</li>
+</ul>
+</div>
+
+<div class="col high">
+<ul>
+<li>Nightlife + crowded streets</li>
+</ul>
+</div>
+
+</div>
+</div>
+</div>
+
+<!-- DAY 10 -->
+<div class="card">
+<div class="day-header" onclick="toggle(this)">Day 10 – Theme Park / Relax</div>
+<div class="toggle-content">
+<div class="columns">
+
+<div class="col low">
+<ul>
+<li>Relax day</li>
+<li>Café hopping + shopping</li>
+</ul>
+</div>
+
+<div class="col mid">
+<ul>
+<li>Visit theme park for half day</li>
+</ul>
+</div>
+
+<div class="col high">
+<ul>
+<li>Full day Universal Studios (Harry Potter World)</li>
+</ul>
+</div>
+
+</div>
+</div>
+</div>
+
+</div>
+<!-- STAY -->
+<div id="stay" class="section">
+<div class="card">
+<h2>🏨 Stay Guide</h2>
+<ul>
+<li><b>Tokyo:</b> Shinjuku, Shibuya (₹6k–₹15k)</li>
+<li><b>Kyoto:</b> Gion, Kawaramachi (₹7k–₹18k)</li>
+<li><b>Osaka:</b> Namba (₹6k–₹12k)</li>
+<li><b>Ryokan:</b> ₹12k–₹25k (Kawaguchiko)</li>
+</ul>
+</div>
+</div>
+
+<!-- FOOD -->
+<div id="food" class="section">
+<div class="card">
+<h2>🍜 Food Guide</h2>
+<ul>
+<li>Ramen, Sushi, Okonomiyaki, Takoyaki</li>
+<li>Vegetarian: Tempura, Udon, Curry rice</li>
+<li>Indian restaurants available in all cities</li>
+</ul>
+</div>
+</div>
+
+<!-- BUDGET -->
+<div id="budget" class="section">
+<div class="card">
+<h2>💰 Budget (INR)</h2>
+<ul>
+<li>Flights: ₹50k–₹80k</li>
+<li>Stay: ₹70k–₹1.5L</li>
+<li>Food: ₹20k–₹40k</li>
+<li>Transport: ₹25k–₹40k</li>
+<li><b>Total: ₹1.5L – ₹2.5L</b></li>
+</ul>
+</div>
+</div>
+
+<!-- VISA -->
+<div id="visa" class="section">
+<div class="card">
+<h2>🛂 Visa</h2>
+<ul>
+<li>Apply via VFS</li>
+<li>5–7 days processing</li>
+<li>Documents: Passport, ITR, bank statements</li>
+</ul>
+</div>
+</div>
+
+<!-- TIPS -->
+<div id="tips" class="section">
+<div class="card">
+<h2>💡 Tips</h2>
+<ul>
+<li>Carry cash (Japan still uses it)</li>
+<li>Respect silence in public</li>
+<li>Use IC cards (Suica/Pasmo)</li>
+<li>Get pocket WiFi</li>
+</ul>
+</div>
+</div>
+
+<script>
+function showSection(id){
+document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+}
+
+function toggle(el){
+el.parentElement.classList.toggle('active');
+}
+</script>
+
+</body>
+</html>

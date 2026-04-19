@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Japan Travel Planner V4</title>
+
+<style>
+body { font-family: 'Segoe UI', sans-serif; margin:0; background:#f4f6f9; }
+header { background: linear-gradient(135deg,#2c3e50,#4ca1af); color:white; padding:20px; text-align:center; }
+nav { display:flex; justify-content:center; background:white; }
+nav button { padding:12px 18px; border:none; background:none; cursor:pointer; font-weight:bold; }
+nav button:hover { color:#2c3e50; }
+
+.section { display:none; padding:20px; max-width:1000px; margin:auto; }
+.active { display:block; }
+
+.card { background:white; border-radius:12px; margin-bottom:15px; box-shadow:0 4px 10px rgba(0,0,0,0.08); }
+
+.day-header {
+    padding:15px;
+    cursor:pointer;
+    display:flex;
+    justify-content:space-between;
+    font-weight:bold;
+}
+
+.day-content {
+    max-height:0;
+    overflow:hidden;
+    transition:0.4s ease;
+    padding:0 15px;
+}
+
+.card.active .day-content {
+    max-height:700px;
+    padding:15px;
+}
+
+.tag {
+    background:#e0f7f5;
+    padding:5px 10px;
+    border-radius:20px;
+    font-size:12px;
+    margin-right:5px;
+}
+
+.highlight {
+    background:#fff3cd;
+    padding:10px;
+    border-radius:8px;
+    margin-top:10px;
+}
+
+ul { padding-left:18px; }
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>🇯🇵 Japan Travel Planner (V4)</h1>
+<p>Low Crowd • Culture • Nature | 20 May Start | Tokyo Round Trip</p>
+</header>
+
+<nav>
+<button onclick="showSection('home')">Home</button>
+<button onclick="showSection('itinerary')">Itinerary</button>
+<button onclick="showSection('visa')">Visa</button>
+</nav>
+
+<!-- HOME -->
+<div id="home" class="section active">
+
+<div class="card" style="padding:20px;">
+<h2>🌿 Travel Philosophy</h2>
+<p>This itinerary avoids crowded tourist traps and focuses on slow travel, culture, and nature.</p>
+<ul>
+<li>✔ Early morning temple visits</li>
+<li>✔ Hidden villages & scenic towns</li>
+<li>✔ Less rushed, more immersive</li>
+</ul>
+</div>
+
+<div class="card" style="padding:20px;">
+<h2>✨ Key Highlights</h2>
+<ul>
+<li>Kamakura coastal temples 🌊</li>
+<li>Kawaguchiko (Mt Fuji views) 🗻</li>
+<li>Kyoto hidden villages 🌿</li>
+<li>Optional Takayama cultural town 🏯</li>
+</ul>
+</div>
+
+</div>
+
+<!-- ITINERARY -->
+<div id="itinerary" class="section">
+
+<div class="card">
+<div class="day-header" onclick="toggle(this)">Day 1 – Tokyo Arrival (Slow Start)</div>
+<div class="day-content">
+<p>Arrival, check-in, light exploration.</p>
+<p>Evening: Quiet walk in Daikanyama.</p>
+<span class="tag">Low Effort</span>
+</div>
+</div>
+
+<div class="card">
+<div class="day-header" onclick="toggle(this)">Day 2 – Tokyo (Local Neighborhoods)</div>
+<div class="day-content">
+<ul>
+<li>Shimokitazawa (cafés, vintage streets)</li>
+<li>Meiji Shrine (early morning)</li>
+</ul>
+<div class="highlight">💡 Avoid Shibuya peak hours</div>
+</div>
+</div>
+
+<div class="card">
+<div class="day-header" onclick="toggle(this)">Day 3 – Kamakura Day Trip</div>
+<div class="day-content">
+<ul>
+<li>Great Buddha</li>
+<li>Hasedera Temple</li>
+<li>Coastal walk</li>
+</ul>
+<span class="tag">Nature + Culture</span>
+</div>
+</div>
+
+<div class="card">
+<div class="day-header" onclick="toggle(this)">Day 4 – Kawaguchiko (Mt Fuji)</div>
+<div class="day-content">
+<ul>
+<li>Lake views</li>
+<li>Onsen stay</li>
+</ul>
+<div class="highlight">📸 Best sunrise photography spot</div>
+</div>
+</div>
+
+<div class="card">
+<div class="day-header" onclick="toggle(this)">Day 5 – Kyoto Transfer</div>
+<div class="day-content">
+<p>Shinkansen to Kyoto (~2.5 hrs)</p>
+<p>Evening: Gion walk</p>
+</div>
+</div>
+
+<div class="card">
+<div class="day-header" onclick="toggle(this)">Day 6 – Kyoto (Early Temple Visit)</div>
+<div class="day-content">
+<ul>
+<li>Fushimi Inari at 6 AM</li>
+<li>Pontocho evening</li>
+</ul>
+<div class="highlight">🚀 Early visit avoids crowds completely</div>
+</div>
+</div>
+
+<div class="card">
+<div class="day-header" onclick="toggle(this)">Day 7 – Hidden Kyoto</div>
+<div class="day-content">
+<ul>
+<li>Ohara village</li>
+<li>Local temples & nature</li>
+</ul>
+<span class="tag">Hidden Gem</span>
+</div>
+</div>
+
+<div class="card">
+<div class="day-header" onclick="toggle(this)">Day 8 – Kurama Nature Day</div>
+<div class="day-content">
+<ul>
+<li>Mountain hike</li>
+<li>Kurama village</li>
+</ul>
+<span class="tag">Nature Focus</span>
+</div>
+</div>
+
+<div class="card">
+<div class="day-header" onclick="toggle(this)">Day 9 – Osaka (Short Visit)</div>
+<div class="day-content">
+<ul>
+<li>Dotonbori food street</li>
+<li>Quick city exploration</li>
+</ul>
+<div class="highlight">⏱ Keep Osaka short</div>
+</div>
+</div>
+
+<div class="card">
+<div class="day-header" onclick="toggle(this)">Day 10 – Optional Theme Park</div>
+<div class="day-content">
+<p>Universal Studios Japan (Harry Potter World)</p>
+<p>OR relax + café hopping</p>
+</div>
+</div>
+
+<div class="card">
+<div class="day-header" onclick="toggle(this)">Day 11 – Return to Tokyo</div>
+<div class="day-content">
+<p>Shopping + relax</p>
+</div>
+</div>
+
+<div class="card">
+<div class="day-header" onclick="toggle(this)">Day 12 – Departure</div>
+<div class="day-content">
+<p>Flight back ✈️</p>
+</div>
+</div>
+
+</div>
+
+<!-- VISA -->
+<div id="visa" class="section">
+
+<div class="card" style="padding:20px;">
+<h3>🛂 Visa Process</h3>
+<ul>
+<li>Apply via VFS Japan</li>
+<li>Processing: 5–7 days</li>
+<li>Fee: ₹500–₹800</li>
+</ul>
+</div>
+
+<div class="card" style="padding:20px;">
+<h3>📄 Documents Required</h3>
+<ul>
+<li>Passport</li>
+<li>Bank statements</li>
+<li>ITR (2–3 years)</li>
+<li>Flights + hotel bookings</li>
+<li>Itinerary</li>
+</ul>
+</div>
+
+</div>
+
+<script>
+function showSection(id){
+document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+}
+
+function toggle(el){
+el.parentElement.classList.toggle('active');
+}
+</script>
+
+</body>
+</html>

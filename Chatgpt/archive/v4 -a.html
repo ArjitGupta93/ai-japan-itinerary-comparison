@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Japan Travel Planner V4</title>
+
+<style>
+body { font-family: 'Segoe UI', sans-serif; margin:0; background:#f4f6f9; }
+header { background: linear-gradient(135deg,#4facfe,#00f2fe); color:white; padding:20px; text-align:center; }
+nav { display:flex; justify-content:center; background:white; }
+nav button { padding:12px 18px; border:none; background:none; cursor:pointer; font-weight:bold; }
+nav button:hover { color:#0077ff; }
+
+.section { display:none; padding:20px; max-width:1000px; margin:auto; }
+.active { display:block; }
+
+.card { background:white; border-radius:12px; margin-bottom:15px; box-shadow:0 4px 10px rgba(0,0,0,0.08); }
+
+.day-header {
+    padding:15px;
+    cursor:pointer;
+    display:flex;
+    justify-content:space-between;
+    font-weight:bold;
+}
+
+.day-content {
+    max-height:0;
+    overflow:hidden;
+    transition:0.4s ease;
+    padding:0 15px;
+}
+
+.card.active .day-content {
+    max-height:700px;
+    padding:15px;
+}
+
+.tag {
+    background:#e0f7fa;
+    padding:5px 10px;
+    border-radius:20px;
+    font-size:12px;
+    margin-right:5px;
+}
+
+.tip {
+    background:#fff3cd;
+    padding:10px;
+    border-radius:8px;
+    margin-top:10px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>🌿 Japan Travel Planner (Low Crowd Edition)</h1>
+<p>Tokyo Round Trip | Culture • Nature • Slow Travel</p>
+</header>
+
+<nav>
+<button onclick="showSection('home')">Home</button>
+<button onclick="showSection('itinerary')">Itinerary</button>
+<button onclick="showSection('visa')">Visa</button>
+</nav>
+
+<!-- HOME -->
+<div id="home" class="section active">
+
+<div class="card" style="padding:20px;">
+<h2>✨ Travel Philosophy</h2>
+<p>This itinerary avoids tourist rush and focuses on:</p>
+<ul>
+<li>🌿 Nature & scenic beauty</li>
+<li>🏯 Cultural immersion</li>
+<li>🧘 Slow, meaningful travel</li>
+</ul>
+</div>
+
+<div class="card" style="padding:20px;">
+<h2>🎢 Optional Experiences</h2>
+<ul>
+<li>Tokyo Disneyland (skip if avoiding crowds)</li>
+<li>Universal Studios Japan (Harry Potter)</li>
+</ul>
+</div>
+
+</div>
+
+<!-- ITINERARY -->
+<div id="itinerary" class="section">
+
+<div class="card">
+<div class="day-header" onclick="toggle(this)">Day 1 – Tokyo Arrival</div>
+<div class="day-content">
+<p>Arrival, check-in, relaxed evening walk in quiet neighborhoods.</p>
+<p><strong>Areas:</strong> Shimokitazawa / Daikanyama</p>
+<span class="tag">Slow Start</span>
+</div>
+</div>
+
+<div class="card">
+<div class="day-header" onclick="toggle(this)">Day 2 – Tokyo Hidden Gems</div>
+<div class="day-content">
+<ul>
+<li>Meiji Shrine (early morning)</li>
+<li>Daikanyama cafes</li>
+<li>Meguro River walk</li>
+</ul>
+<div class="tip">💡 Visit early morning to avoid crowd</div>
+</div>
+</div>
+
+<div class="card">
+<div class="day-header" onclick="toggle(this)">Day 3 – Kamakura Day Trip</div>
+<div class="day-content">
+<ul>
+<li>Great Buddha</li>
+<li>Hasedera Temple</li>
+<li>Coastal walk</li>
+</ul>
+<p><strong>Travel:</strong> ~1 hr from Tokyo</p>
+<span class="tag">Nature + Culture</span>
+</div>
+</div>
+
+<div class="card">
+<div class="day-header" onclick="toggle(this)">Day 4 – Kawaguchiko (Mt Fuji)</div>
+<div class="day-content">
+<ul>
+<li>Lake Kawaguchi views</li>
+<li>Ryokan stay + onsen</li>
+</ul>
+<div class="tip">📸 Best sunrise views of Mt Fuji</div>
+</div>
+</div>
+
+<div class="card">
+<div class="day-header" onclick="toggle(this)">Day 5 – Kyoto Transfer</div>
+<div class="day-content">
+<p>Bullet train (~2.5 hrs), explore Gion in evening.</p>
+</div>
+</div>
+
+<div class="card">
+<div class="day-header" onclick="toggle(this)">Day 6 – Kyoto Early Exploration</div>
+<div class="day-content">
+<ul>
+<li>Fushimi Inari (6 AM visit)</li>
+<li>Philosopher’s Path</li>
+</ul>
+<div class="tip">🚨 Early visit avoids 90% crowd</div>
+</div>
+</div>
+
+<div class="card">
+<div class="day-header" onclick="toggle(this)">Day 7 – Kyoto Nature</div>
+<div class="day-content">
+<ul>
+<li>Ohara village</li>
+<li>Sanzen-in Temple</li>
+</ul>
+<span class="tag">Hidden Gem</span>
+</div>
+</div>
+
+<div class="card">
+<div class="day-header" onclick="toggle(this)">Day 8 – Nara</div>
+<div class="day-content">
+<ul>
+<li>Nara Park (early morning)</li>
+<li>Todai-ji Temple</li>
+</ul>
+</div>
+</div>
+
+<div class="card">
+<div class="day-header" onclick="toggle(this)">Day 9 – Osaka (Short Stay)</div>
+<div class="day-content">
+<ul>
+<li>Dotonbori food street</li>
+<li>Street photography</li>
+</ul>
+<span class="tag">Food Focus</span>
+</div>
+</div>
+
+<div class="card">
+<div class="day-header" onclick="toggle(this)">Day 10 – Optional Theme Park</div>
+<div class="day-content">
+<p>Universal Studios Japan OR skip for rest day.</p>
+</div>
+</div>
+
+<div class="card">
+<div class="day-header" onclick="toggle(this)">Day 11 – Return to Tokyo</div>
+<div class="day-content">
+<p>Shopping + relaxing cafes.</p>
+</div>
+</div>
+
+<div class="card">
+<div class="day-header" onclick="toggle(this)">Day 12 – Departure</div>
+<div class="day-content">
+<p>Return flight ✈️</p>
+</div>
+</div>
+
+</div>
+
+<!-- VISA -->
+<div id="visa" class="section">
+
+<div class="card" style="padding:20px;">
+<h3>🛂 Visa Process</h3>
+<ul>
+<li>Apply via VFS Japan</li>
+<li>Processing: 5–7 days</li>
+<li>Fee: ₹500–₹800</li>
+</ul>
+</div>
+
+<div class="card" style="padding:20px;">
+<h3>📄 Documents</h3>
+<ul>
+<li>Passport</li>
+<li>Bank statements</li>
+<li>ITR</li>
+<li>Bookings</li>
+</ul>
+</div>
+
+</div>
+
+<script>
+function showSection(id){
+document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+}
+
+function toggle(el){
+el.parentElement.classList.toggle('active');
+}
+</script>
+
+</body>
+</html>

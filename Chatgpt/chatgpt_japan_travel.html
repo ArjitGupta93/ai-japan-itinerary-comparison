@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Japan Travel Planner</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f5f7fa;
+  color: #333;
+}
+header {
+  background: #4a90e2;
+  color: white;
+  padding: 15px;
+  text-align: center;
+}
+nav {
+  display: flex;
+  justify-content: space-around;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+}
+nav button {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  background: white;
+  cursor: pointer;
+}
+nav button:hover {
+  background: #f0f0f0;
+}
+.section {
+  display: none;
+  padding: 20px;
+}
+.active {
+  display: block;
+}
+.card {
+  background: white;
+  margin: 15px 0;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.day {
+  cursor: pointer;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.content {
+  display: none;
+}
+.option {
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 8px;
+}
+.low { background: #e8f5e9; }
+.mid { background: #fff8e1; }
+.high { background: #ffebee; }
+</style>
+</head>
+<body>
+
+<header>
+<h1>Japan Travel Planner (May Trip)</h1>
+<p>10–14 Day Culture + Nature Focused Itinerary</p>
+</header>
+
+<nav>
+<button onclick="showSection('home')">Home</button>
+<button onclick="showSection('itinerary')">Itinerary</button>
+<button onclick="showSection('stay')">Stay</button>
+<button onclick="showSection('food')">Food</button>
+<button onclick="showSection('budget')">Budget</button>
+<button onclick="showSection('visa')">Visa</button>
+<button onclick="showSection('tips')">Tips</button>
+</nav>
+
+<div id="home" class="section active">
+<div class="card">
+<h2>Welcome</h2>
+<p>This itinerary is designed specifically for Indian travelers visiting Japan for the first time, focusing on low crowds, culture, and nature while minimizing fatigue.</p>
+<p><b>Route:</b> Tokyo → Kamakura → Kyoto → Osaka → Tokyo</p>
+<p><b>Best Feature:</b> Every day has 3 options based on crowd preference.</p>
+</div>
+</div>
+
+<div id="itinerary" class="section">
+
+<!-- DAY TEMPLATE -->
+<script>
+function toggleDay(id){
+  let el = document.getElementById(id);
+  el.style.display = el.style.display === "block" ? "none" : "block";
+}
+</script>
+
+<div class="card">
+<div class="day" onclick="toggleDay('day1')">Day 1 – Arrival Tokyo</div>
+<div id="day1" class="content">
+
+<div class="option low">
+<h4>🟢 Low Crowd</h4>
+<p>Arrive in Tokyo → Take Narita Express (~1 hr) → Stay in Asakusa.</p>
+<p>Evening: Walk Sumida River, explore quiet streets, visit Senso-ji after 8 PM (empty & magical).</p>
+<p>Food: Try local ramen shop (¥1200)</p>
+<p>Cost: ₹6,000</p>
+<p>Tip: Avoid Shibuya on day 1 to reduce fatigue.</p>
+</div>
+
+<div class="option mid">
+<h4>🟡 Balanced</h4>
+<p>Check-in → Visit Tokyo Skytree → Explore Asakusa market street.</p>
+<p>Transport: Metro (~20 min)</p>
+</div>
+
+<div class="option high">
+<h4>🔴 Popular</h4>
+<p>Shibuya Crossing → Hachiko statue → Shinjuku nightlife.</p>
+<p>Tip: Expect heavy crowds.</p>
+</div>
+
+</div>
+</div>
+
+<div class="card">
+<div class="day" onclick="toggleDay('day2')">Day 2 – Tokyo Culture</div>
+<div id="day2" class="content">
+
+<div class="option low">
+<p><b>Morning:</b> Meiji Shrine at 6 AM</p>
+<p><b>Afternoon:</b> Daikanyama (quiet cafes, bookstores)</p>
+<p><b>Evening:</b> Meguro river walk</p>
+<p>Cost: ₹5,000</p>
+</div>
+
+<div class="option mid">
+<p>Harajuku → Omotesando → Shibuya evening</p>
+</div>
+
+<div class="option high">
+<p>DisneySea full day (crowded but unique)</p>
+</div>
+
+</div>
+</div>
+
+<div class="card">
+<div class="day" onclick="toggleDay('day3')">Day 3 – Kamakura Day Trip</div>
+<div id="day3" class="content">
+
+<div class="option low">
+<p>Early train (1 hr) → Hokokuji Bamboo Forest → Hasedera Temple → Quiet beach sunset</p>
+<p>Cost: ₹4,500</p>
+</div>
+
+<div class="option mid">
+<p>Great Buddha → Komachi Street → Temples</p>
+</div>
+
+<div class="option high">
+<p>Full tourist circuit</p>
+</div>
+
+</div>
+</div>
+
+<div class="card">
+<div class="day" onclick="toggleDay('day4')">Day 4 – Travel to Kyoto</div>
+<div id="day4" class="content">
+
+<div class="option low">
+<p>Shinkansen (2.5 hr) → Gion evening walk → Hidden alleys</p>
+<p>Cost: ₹12,000</p>
+</div>
+
+<div class="option mid">
+<p>Kyoto station exploration + Nishiki market</p>
+</div>
+
+<div class="option high">
+<p>Full tourist Kyoto night walk</p>
+</div>
+
+</div>
+</div>
+
+<div class="card">
+<div class="day" onclick="toggleDay('day5')">Day 5 – Kyoto Temples</div>
+<div id="day5" class="content">
+
+<div class="option low">
+<p>Fushimi Inari at 6 AM → hike halfway → avoid crowds</p>
+<p>Afternoon: Uji tea town</p>
+</div>
+
+<div class="option mid">
+<p>Kinkaku-ji + Arashiyama bamboo grove</p>
+</div>
+
+<div class="option high">
+<p>All major Kyoto spots in one day (exhausting)</p>
+</div>
+
+</div>
+</div>
+
+<div class="card">
+<div class="day" onclick="toggleDay('day6')">Day 6 – Kyoto Hidden Gems</div>
+<div id="day6" class="content">
+
+<div class="option low">
+<p>Philosopher’s Path → Nanzen-ji → Ginkaku-ji</p>
+</div>
+
+<div class="option mid">
+<p>Arashiyama full exploration</p>
+</div>
+
+<div class="option high">
+<p>Tour bus Kyoto</p>
+</div>
+
+</div>
+</div>
+
+<div class="card">
+<div class="day" onclick="toggleDay('day7')">Day 7 – Nara or Osaka</div>
+<div id="day7" class="content">
+
+<div class="option low">
+<p>Nara early morning → feed deer → quiet temples</p>
+</div>
+
+<div class="option mid">
+<p>Osaka castle + Dotonbori</p>
+</div>
+
+<div class="option high">
+<p>Universal Studios</p>
+</div>
+
+</div>
+</div>
+
+<div class="card">
+<div class="day" onclick="toggleDay('day8')">Day 8 – Osaka Food + Culture</div>
+<div id="day8" class="content">
+
+<div class="option low">
+<p>Local food tour → Shinsekai → hidden bars</p>
+</div>
+
+<div class="option mid">
+<p>Dotonbori + shopping</p>
+</div>
+
+<div class="option high">
+<p>Theme parks</p>
+</div>
+
+</div>
+</div>
+
+<div class="card">
+<div class="day" onclick="toggleDay('day9')">Day 9 – Return Tokyo</div>
+<div id="day9" class="content">
+
+<div class="option low">
+<p>Bullet train → Relaxation → Onsen experience</p>
+</div>
+
+<div class="option mid">
+<p>Shopping Ginza</p>
+</div>
+
+<div class="option high">
+<p>Akihabara full day</p>
+</div>
+
+</div>
+</div>
+
+<div class="card">
+<div class="day" onclick="toggleDay('day10')">Day 10 – Departure</div>
+<div id="day10" class="content">
+
+<div class="option low">
+<p>Relax café morning → airport</p>
+</div>
+
+<div class="option mid">
+<p>Last minute shopping</p>
+</div>
+
+<div class="option high">
+<p>Rush sightseeing</p>
+</div>
+
+</div>
+</div>
+
+</div>
+
+<div id="stay" class="section">
+<div class="card">
+<h3>Where to Stay</h3>
+<p><b>Tokyo:</b> Asakusa (budget), Shinjuku (connectivity)</p>
+<p>₹4k–₹15k/night</p>
+<p><b>Kyoto:</b> Gion / Kawaramachi</p>
+<p><b>Osaka:</b> Namba area</p>
+<p>Tip: Stay near JR stations</p>
+</div>
+</div>
+
+<div id="food" class="section">
+<div class="card">
+<h3>Food Guide</h3>
+<p>Must Try: Sushi, Ramen, Okonomiyaki, Takoyaki</p>
+<p>Street Areas: Dotonbori, Nishiki Market</p>
+<p>Budget: ₹800–₹2500/day</p>
+</div>
+</div>
+
+<div id="budget" class="section">
+<div class="card">
+<h3>Budget (INR)</h3>
+<p>Flights: ₹50k–₹80k</p>
+<p>Stay: ₹40k–₹1L</p>
+<p>Food: ₹20k</p>
+<p>Transport: ₹25k</p>
+<p>Total: ₹1.5L–₹2.5L</p>
+</div>
+</div>
+
+<div id="visa" class="section">
+<div class="card">
+<h3>Japan Visa (India)</h3>
+<p>Documents: Passport, photos, bank statement, ITR</p>
+<p>Fee: ~₹500</p>
+<p>Processing: 5–7 days</p>
+<p>Tip: Show strong financial proof</p>
+</div>
+</div>
+
+<div id="tips" class="section">
+<div class="card">
+<h3>Travel Tips</h3>
+<p>SIM: Buy at airport or eSIM</p>
+<p>Carry cash (Japan is cash-heavy)</p>
+<p>Respect silence in public transport</p>
+<p>Pack light jacket (May weather mild)</p>
+</div>
+</div>
+
+<script>
+function showSection(id){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+</script>
+
+</body>
+</html>

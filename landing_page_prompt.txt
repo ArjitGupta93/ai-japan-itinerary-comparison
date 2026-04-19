@@ -1,0 +1,47 @@
+You are an expert frontend developer and UI/UX designer.
+
+Your task is to create a modern, interactive static landing page (single HTML file) that acts as a navigation hub for multiple AI-generated outputs.
+
+### Context:
+I have multiple folders, each representing output from a different AI tool. Each folder contains a single HTML file with the naming convention:
+<tool_name>/<tool_name>_japan_travel.html
+
+Example structure:
+- gemini/gemini_japan_travel.html
+- chatgpt/chatgpt_japan_travel.html
+- deepseek/deepseek_japan_travel.html
+- claude/claude_japan_travel.html
+
+### Requirements:
+1. Build a visually appealing landing page (index.html)
+2. Use pure HTML, CSS, and minimal JavaScript (no frameworks)
+3. Design clickable “cards” for each AI tool:
+   - Gemini
+   - ChatGPT
+   - DeepSeek
+   - Claude
+4. Each card should:
+   - Display tool name
+   - Include a short description
+   - Be clickable and navigate to the respective HTML file
+5. Add smooth hover effects and subtle animations
+6. Make the layout responsive (mobile + desktop)
+7. Use modern UI design:
+   - Soft shadows
+   - Rounded corners
+   - Clean typography
+   - Gradient or elegant background
+8. Include a header section with:
+   - Title: "Japan Itinerary Explorer"
+   - Subtitle explaining purpose (compare AI-generated itineraries)
+9. Add a footer with a subtle message
+
+### Bonus (if possible):
+- Add icons or tags for each AI
+- Add hover transitions (lift, glow, scale)
+- Keep code clean and well-structured
+
+### Output format:
+Return a single complete HTML file (index.html) with embedded CSS and JavaScript.
+
+Do not include explanations—only provide the final code.
